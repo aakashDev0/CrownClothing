@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 
 import FormInput from "../form-input/form-input.components";
 
@@ -18,7 +18,10 @@ const Signup = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
-  console.log(formFields);
+
+  // console.log('hit');
+  
+  // console.log(formFields);
 
   const resetFormFields = () =>{
     setFormFields(defaultFormFields);
@@ -36,6 +39,8 @@ const Signup = () => {
             email,
             password
         );
+
+
         await createUserDocumentFromAuth(user, {displayName});
         resetFormFields()
 
