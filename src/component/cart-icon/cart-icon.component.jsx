@@ -1,16 +1,16 @@
 import "./cart-icon.styles.scss";
-import { FaCartShopping } from "react-icons/fa6";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 import { CartContext } from "../../contexts/cart.context";
 import { useContext } from "react";
 const CartIcon = () =>{
 
-    const {isCartOpen, setIsCartOpen} = useContext(CartContext);
+    const {isCartOpen, setIsCartOpen, cartCount} = useContext(CartContext);
     const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
     return(
         <div className="cart-icon" onClick={toggleIsCartOpen}>
-        <FaCartShopping  className="shopping-icon"/>
-        <span className="item-count">0</span>
+        <HiOutlineShoppingBag  className="shopping-icon"/>
+        <span className="item-count">{cartCount}</span>
         </div>
     )
 }
