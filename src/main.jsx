@@ -6,18 +6,18 @@ import "./index.scss";
 import { UserProvider } from "./contexts/user.context";
 import { CartProvider } from "./contexts/cart.context";
 
-import { ProductProvider } from "./contexts/products.context.jsx";
+import { CategoriesProvider } from "./contexts/categories.context.jsx";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <ProductProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-        </ProductProvider>
+        <CategoriesProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
   </StrictMode>

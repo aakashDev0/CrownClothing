@@ -9,7 +9,7 @@ import "./sign-in-form.styles.scss";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword
+  signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 const defaultFormFields = {
   email: "",
@@ -20,7 +20,6 @@ const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-
   console.log(formFields);
 
   const resetFormFields = () => {
@@ -28,21 +27,20 @@ const SignIn = () => {
   };
 
   const signInWithGoogle = async () => {
-     await signInWithGooglePopup();
-    
+    await signInWithGooglePopup();
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const {user} = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
-      )
-    
+      );
+
       resetFormFields();
     } catch (error) {
-      switch(error.code){
+      switch (error.code) {
         case "auth/invalid-credential":
           alert("incorrect password for email");
           break;
